@@ -16,20 +16,16 @@ namespace lb_shoe_store
                 {
                     if (formLogin.ShowDialog() == DialogResult.OK)
                     {
-                        using (var formProducts = new FormProducts(
-                            formLogin.CurrentUser,
-                            formLogin.IsGuest))
+                        // Открываем промежуточную форму выбора
+                        using (var formChoice = new FormProductsOrOrders(formLogin.CurrentUser, formLogin.IsGuest))
                         {
-                            if(formProducts.ShowDialog() == DialogResult.Cancel)
+                            if (formChoice.ShowDialog() == DialogResult.Cancel)
                             {
                                 continue;
                             }
-                            else
-                            {
-                                exitProgram = true;
-                            }
                         }
-                    } else
+                    }
+                    else
                     {
                         exitProgram = true;
                     }

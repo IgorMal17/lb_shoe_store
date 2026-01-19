@@ -3,7 +3,7 @@ using lb_shoe_store.Properties;
 using Microsoft.EntityFrameworkCore;
 namespace lb_shoe_store
 {
-    public partial class FormProducts : Form
+    public partial class FormProducts : System.Windows.Forms.Form
     {
 
         public User CurrentUser { get; private set; }
@@ -14,19 +14,19 @@ namespace lb_shoe_store
             InitializeComponent();
 
             var colPhoto = new DataGridViewImageColumn();
-            colPhoto.Name = "colPhoto";
+            colPhoto.Name = "Фото";
             colPhoto.ImageLayout = DataGridViewImageCellLayout.Zoom;
             colPhoto.Width = 200;
             colPhoto.FillWeight = 30;
 
             var colInfo = new DataGridViewTextBoxColumn();
-            colInfo.Name = "colInfo";
+            colInfo.Name = "Информация";
             colInfo.FillWeight = 60;
             colInfo.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
 
             var colDiscount = new DataGridViewTextBoxColumn();
-            colDiscount.Name = "colDiscount";
+            colDiscount.Name = "Скидка";
             colDiscount.FillWeight = 10;
             colDiscount.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -65,12 +65,12 @@ namespace lb_shoe_store
                         int rowIndex = dgvProducts.Rows.Add();
                         var row = dgvProducts.Rows[rowIndex];
 
-                        row.Cells["colPhoto"].Value = LoadProductImage(product.PhotoUrl);
+                        row.Cells["Фото"].Value = LoadProductImage(product.PhotoUrl);
 
-                        row.Cells["colInfo"].Value = FormatProductInfo(product);
+                        row.Cells["Информация"].Value = FormatProductInfo(product);
 
-                        row.Cells["colDiscount"].Value = $"{product.Discount}%";
-                        row.Cells["colDiscount"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        row.Cells["Скидка"].Value = $"{product.Discount}%";
+                        row.Cells["Скидка"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                         ApplyRowStyles(row, product);
                     }
@@ -105,8 +105,8 @@ namespace lb_shoe_store
 
             if (product.Discount > 0)
             {
-                row.Cells["colDiscount"].Style.ForeColor = Color.Red;
-                row.Cells["colDiscount"].Style.Font = new Font(
+                row.Cells["Скидка"].Style.ForeColor = Color.Red;
+                row.Cells["Скидка"].Style.Font = new Font(
                     "Times New Roman",
                     12,
                     FontStyle.Bold);
