@@ -131,6 +131,7 @@
             Controls.Add(ProductsBtn);
             Controls.Add(dgvProductsOrOrders);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormProductsOrOrders";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Просмотреть товары или заказы";

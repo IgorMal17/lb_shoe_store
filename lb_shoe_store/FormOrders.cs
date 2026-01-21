@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lb_shoe_store
 {
-    public partial class FormOrders : System.Windows.Forms.Form
+    public partial class FormOrders : Form
     {
         private User currentUser;
         private bool isGuest;
@@ -43,7 +43,7 @@ namespace lb_shoe_store
             var colStatus = new DataGridViewTextBoxColumn
             {
                 Name = "colStatus",
-                HeaderText = "Статус",
+                HeaderText = "Дата доставки",
                 FillWeight = 15,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter }
             };
@@ -83,7 +83,7 @@ namespace lb_shoe_store
                 var row = dgvOrders.Rows[rowIndex];
                 var firstProduct = order.ProductsOrders.FirstOrDefault()?.Product;
                 row.Cells["colInfo"].Value = FormatOrderInfo(order);
-                row.Cells["colStatus"].Value = $"Дата доставки: {order.DeliveryDate:dd.MM.yyyy}";
+                row.Cells["colStatus"].Value = $"{order.DeliveryDate:dd.MM.yyyy}";
                 ApplyOrderRowStyles(row, order);
             }
         }
@@ -138,10 +138,15 @@ namespace lb_shoe_store
                    $"Сумма: {totalSum:C}";
         }
 
-        private void BtnLogout_Click(object sender, EventArgs e)
+        private void BtnLogut_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
-            Close();
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
         }
     }
 }

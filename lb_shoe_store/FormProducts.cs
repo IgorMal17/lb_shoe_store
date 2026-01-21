@@ -3,7 +3,7 @@ using lb_shoe_store.Properties;
 using Microsoft.EntityFrameworkCore;
 namespace lb_shoe_store
 {
-    public partial class FormProducts : System.Windows.Forms.Form
+    public partial class FormProducts : Form
     {
 
         public User CurrentUser { get; private set; }
@@ -138,7 +138,7 @@ namespace lb_shoe_store
 
         private Image LoadProductImage(string photoUrl)
         {
-            if (!String.IsNullOrEmpty(photoUrl) && System.IO.File.Exists(photoUrl))
+            if (!String.IsNullOrEmpty(photoUrl) && File.Exists(photoUrl))
             {
                 return Image.FromFile(photoUrl);
             }

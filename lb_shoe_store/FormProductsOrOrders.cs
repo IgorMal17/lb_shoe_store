@@ -1,7 +1,7 @@
 ﻿using lb_shoe_store.Models;
 namespace lb_shoe_store
 {
-    public partial class FormProductsOrOrders : System.Windows.Forms.Form
+    public partial class FormProductsOrOrders : Form
     {
         private User currentUser;
         private bool isGuest;
