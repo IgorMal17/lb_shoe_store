@@ -20,29 +20,19 @@ namespace lb_shoe_store
 
             lbUserName.Text = IsGuest ? "Гость" : CurrentUser.FullName;
         }
-
-
         private void ProductsBtn_Click(object sender, EventArgs e)
         {
-            using (var formProducts = new FormProducts(CurrentUser, IsGuest))
-            {
-                formProducts.ShowDialog();
-            }
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            var formProducts = new FormProducts(CurrentUser, IsGuest);
+            formProducts.ShowDialog();
         }
 
         private void OrdersBtn_Click(object sender, EventArgs e)
         {
-            using (var formOrders = new FormOrders(CurrentUser, IsGuest))
-            {
-                formOrders.ShowDialog();
-            }
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            var formOrders = new FormOrders(CurrentUser, IsGuest);
+            formOrders.ShowDialog();
         }
 
-        private void BtnExit_Click(object sender, EventArgs e)
+        private void BtnLogut_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();

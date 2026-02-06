@@ -146,7 +146,7 @@ namespace lb_shoe_store
             return Resources.picture;
         }
 
-        private void BtnLogut_Click(object sender, EventArgs e)
+        private void ProductsBtn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();

@@ -138,7 +138,7 @@ namespace lb_shoe_store
                    $"Сумма: {totalSum:C}";
         }
 
-        private void BtnLogut_Click(object sender, EventArgs e)
+        private void OrdersBtn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
